@@ -1,28 +1,56 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <fieldset>
+        <legend>Volume Control</legend>
+        Pan
+        <DawKnob :hideLabel="true" :initialValue="50"/>
+        Master
+        <DawKnob :hideLabel="true" :initialValue="70"/>
+      </fieldset>
+      <p>
+        What's your overall experience with our product?
+        <!-- <input type="checkbox" name="some" id=""> -->
+      </p>
+      <p>
+        Bad
+        <DawKnob :initialValue="50" :hideLabel="true"/>
+        Good
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DawKnob from "./components/DawKnob.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    DawKnob
   }
-}
+};
 </script>
 
-<style>
+<style lang="stylus">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: Georgia;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+fieldset {
+  display inline-block
+}
+
+fieldset > * {
+  vertical-align: bottom;
+}
+
+.knob {
+  font-size: 24pt;
 }
 </style>
